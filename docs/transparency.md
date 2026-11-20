@@ -23,6 +23,7 @@ does not name.
 | **The wrapped vault key** (twice: under your password and under your recovery key) and a hash of your recovery proof | To let you open your vault on a new device, and to recover it with your recovery key | Until you delete the account | Nobody: the server holds them but cannot open them |
 | **Your e-mail address and phone number**, only if you added them, encrypted, plus a keyed hash for looking them up | To sign in with them and to reset a forgotten password | Until you remove them or delete the account | The server, only to send you a message you asked for |
 | **A code sent to you**, as a hash | To check the code you type | 15 minutes, or until used | The server |
+| **A password-reset permission**, as a hash, after you typed a code | To let you set a new password | 15 minutes, or until used | The server |
 | **Sessions:** a hash of each token, the device name your application gave, when it started, the day it was last used | To keep you signed in, and to let you see and end your sessions | Until you sign out or end it, or 180 days after its last use | You and the server |
 | **Your vault:** encrypted entries, their size, version and when each last changed | So your progress and scores follow you to another device | Until you delete the entry or the account | **Only you.** The server cannot decrypt it |
 | **A deleted username**, as a hash | So nobody can take your name the day you leave and pretend to be you | 30 days | The server |

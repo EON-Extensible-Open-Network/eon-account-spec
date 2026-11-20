@@ -147,7 +147,8 @@ and a name it chose. Both names follow the pattern `^[a-z0-9][a-z0-9-]{0,31}$`.
 | `DELETE /v0/vault/{app}/{name}` | ✓ | – | `204` |
 
 - **Versions.** `base_version` is the version the client last read, or `0` for a new
-  entry. A stale base gets `409`, and the client then reads, merges and writes again.
+  entry. A stale base gets `409` with the current version (`0` if the entry no longer
+  exists), and the client then reads, merges and writes again.
 - **Limits.** The reference server allows 1 MiB per entry, 64 entries and 8 MiB in all.
 - **What the server checks.** Only that `data` has the sealed-box shape. Its contents are
   never inspected.

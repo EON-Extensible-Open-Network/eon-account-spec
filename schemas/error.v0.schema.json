@@ -28,8 +28,8 @@
     },
     "version": {
       "type": "integer",
-      "minimum": 1,
-      "description": "Only with `conflict`: the entry's current version."
+      "minimum": 0,
+      "description": "Only with `conflict`: the entry's current version; 0 if it no longer exists."
     }
   },
   "if": {
