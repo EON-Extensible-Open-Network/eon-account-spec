@@ -1,0 +1,11 @@
+{
+  "api": 0,
+  "name": "EON Account (test)",
+  "version": "0.1.0",
+  "registration": "open",
+  "contacts": {
+    "email": true,
+    "phone": false
+  },
+  "suite": "opaque-3dh-ristretto255-sha512-argon2id-v0"
+}

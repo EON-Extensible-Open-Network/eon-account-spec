@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eonstream.org/schemas/account/transparency.v0.schema.json",
+  "title": "What an EON Account server keeps, v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "api",
+    "server",
+    "kept",
+    "memory_only",
+    "never"
+  ],
+  "$defs": {
+    "text": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "en",
+        "tr"
+      ],
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tr": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "properties": {
+    "api": {
+      "const": 0
+    },
+    "server": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kept": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "what",
+          "why",
+          "kept_for",
+          "readable_by"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,31}$"
+          },
+          "what": {
+            "$ref": "#/$defs/text"
+          },
+          "why": {
+            "$ref": "#/$defs/text"
+          },
+          "kept_for": {
+            "$ref": "#/$defs/text"
+          },
+          "readable_by": {
+            "$ref": "#/$defs/text"
+          },
+          "required_by_law": {
+            "$ref": "#/$defs/text"
+          }
+        }
+      }
+    },
+    "memory_only": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/text"
+      }
+    },
+    "never": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/text"
+      }
+    }
+  }
+}

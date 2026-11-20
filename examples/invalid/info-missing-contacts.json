@@ -1,0 +1,7 @@
+{
+  "api": 0,
+  "name": "x",
+  "version": "0.1.0",
+  "registration": "open",
+  "suite": "opaque-3dh-ristretto255-sha512-argon2id-v0"
+}

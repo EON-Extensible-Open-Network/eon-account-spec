@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eonstream.org/schemas/account/info.v0.schema.json",
+  "title": "EON Account server info, v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "api",
+    "name",
+    "version",
+    "registration",
+    "contacts",
+    "suite"
+  ],
+  "properties": {
+    "api": {
+      "const": 0
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "registration": {
+      "enum": [
+        "open",
+        "closed"
+      ]
+    },
+    "contacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "email",
+        "phone"
+      ],
+      "properties": {
+        "email": {
+          "type": "boolean"
+        },
+        "phone": {
+          "type": "boolean"
+        }
+      }
+    },
+    "suite": {
+      "const": "opaque-3dh-ristretto255-sha512-argon2id-v0"
+    }
+  }
+}

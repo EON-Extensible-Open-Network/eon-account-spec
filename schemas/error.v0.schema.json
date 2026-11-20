@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eonstream.org/schemas/account/error.v0.schema.json",
+  "title": "EON Account error, v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "error",
+    "message"
+  ],
+  "properties": {
+    "error": {
+      "enum": [
+        "invalid",
+        "taken",
+        "unauthorised",
+        "forbidden",
+        "not_found",
+        "conflict",
+        "too_large",
+        "rate_limited",
+        "closed",
+        "unavailable"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Only with `conflict`: the entry's current version."
+    }
+  },
+  "if": {
+    "properties": {
+      "error": {
+        "const": "conflict"
+      }
+    }
+  },
+  "then": {
+    "required": [
+      "version"
+    ]
+  },
+  "else": {
+    "not": {
+      "required": [
+        "version"
+      ]
+    }
+  }
+}

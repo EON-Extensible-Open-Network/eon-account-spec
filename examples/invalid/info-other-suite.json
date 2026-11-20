@@ -1,0 +1,11 @@
+{
+  "api": 0,
+  "name": "x",
+  "version": "0.1.0",
+  "registration": "open",
+  "contacts": {
+    "email": true,
+    "phone": false
+  },
+  "suite": "opaque-3dh-p256-sha256-identity"
+}

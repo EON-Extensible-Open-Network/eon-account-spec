@@ -1,0 +1,10 @@
+{
+  "v": 0,
+  "iss": "https://account.example.org",
+  "aud": "https://community.example.org",
+  "sub": "q83vEjRWeJq83vEjRWeJqw",
+  "iat": 1795000000,
+  "exp": 1795000300,
+  "kid": "k1",
+  "name": "deniz.k"
+}

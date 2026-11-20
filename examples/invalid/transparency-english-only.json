@@ -1,0 +1,36 @@
+{
+  "api": 0,
+  "server": "EON Account (test)",
+  "kept": [
+    {
+      "id": "accounts",
+      "what": {
+        "en": "Account id, username, creation time, OPAQUE record",
+        "tr": "Hesap kimliği, kullanıcı adı, oluşturma zamanı, OPAQUE kaydı"
+      },
+      "why": {
+        "en": "To let you sign in"
+      },
+      "kept_for": {
+        "en": "Until you delete the account",
+        "tr": "Hesabı silene kadar"
+      },
+      "readable_by": {
+        "en": "The server",
+        "tr": "Sunucu"
+      }
+    }
+  ],
+  "memory_only": [
+    {
+      "en": "Attempt counters, per login and network address",
+      "tr": "Deneme sayaçları, giriş ve ağ adresi başına"
+    }
+  ],
+  "never": [
+    {
+      "en": "Your password, in any form",
+      "tr": "Parolanız, hiçbir biçimde"
+    }
+  ]
+}
