@@ -120,7 +120,7 @@ A server without a way to send mail, or texts, answers `503 unavailable`.
 | Route | | Body | Answer |
 |---|---|---|---|
 | `POST /v0/recover/start` | – | `{username, proof, request}` | `200 {response, recovery_wrap}`; `401 unauthorised` |
-| `POST /v0/recover/finish` | – | `{username, proof, record, password_wrap}` | `200 {token, expires_at, username}` — every other session ends |
+| `POST /v0/recover/finish` | – | `{username, proof, record, password_wrap, device}` | `200 {token, expires_at, username}` — every other session ends |
 
 **With a verified contact** (the vault starts empty, because the old one cannot be
 opened):
@@ -130,7 +130,7 @@ opened):
 | `POST /v0/reset/request` | – | `{contact}` | `202`, always |
 | `POST /v0/reset/verify` | – | `{contact, code}` | `200 {reset_token, username}`; `400 invalid` |
 | `POST /v0/reset/start` | – | `{reset_token, request}` | `200 {response}` |
-| `POST /v0/reset/finish` | – | `{reset_token, record, vault: {password_wrap, recovery_wrap, recovery_proof}}` | `200 {token, expires_at, username}` — every vault entry and every other session are deleted |
+| `POST /v0/reset/finish` | – | `{reset_token, record, vault: {password_wrap, recovery_wrap, recovery_proof}, device}` | `200 {token, expires_at, username}` — every vault entry and every other session are deleted |
 
 A reset token is valid for 15 minutes.
 

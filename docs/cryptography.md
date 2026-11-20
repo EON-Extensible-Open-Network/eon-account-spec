@@ -59,9 +59,15 @@ accounts, therefore fails to open:
 
 `password_wrap` and `recovery_wrap` each hold the 32-byte `vault_key`.
 
-**What the server can see.** It sees an entry's length and the time it last changed.
-Clients that care may pad. EON Stream rounds every entry up to a multiple of 4 KiB, and the
-padding is ignored after decryption: the plaintext is JSON followed by zero bytes.
+**What the server can see.** It sees an entry's length and the time it last changed. To
+make the length say less, every client pads a vault entry before sealing it:
+
+```
+plaintext = length of data (4 bytes, big-endian) ‖ data ‖ zero bytes up to a multiple of 4096
+```
+
+A reader takes `length` bytes after the prefix and ignores the rest. Wrapped keys are not
+padded.
 
 ## Sessions
 
